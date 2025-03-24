@@ -1,18 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="background-image grid grid-cols-1 m-auto">
+    <div class="bg-white pt-10 grid grid-cols-1 m-auto ">
         <div class="flex text-gray-100 pt-10">
-            <div class="m-auto pt-4 pb-16 sm:m-auto w-4/5 block text-center">
-                <h1 class="sm:text-white text-5xl uppercase font-bold text-shadow-md pb-14">
-                    Do you want to become a developer?
+            <div class="m-auto pt-4 pb-14 sm:m-auto w-4/5 block text-center border-b-2 border-black">
+                <h1 class="sm:text-black text-5xl uppercase font-bold text-shadow-md pb-14">
+                    SpinList
                 </h1>
-                <a 
-                    href="/blog"
-                    class="text-center bg-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase">
-                    Read More
-                </a>
             </div>
+        </div>
+    </div>
+
+    <div class="bg-white grid grid-cols-2 m-auto">
+        <div class="m-auto sm:m-auto text-left w-4/5 block">
+            <h1 class="text-black font-bold">
+                Latest
+            </h1>
+        </div>
+
+        <div class="m-auto sm:m-auto text-left w-4/5 block">
+            <h1 class="">
+                Reccomended
+            </h1>
         </div>
     </div>
 
