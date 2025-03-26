@@ -11,17 +11,51 @@
         </div>
     </div>
 
-    <div class="bg-white grid grid-cols-2 m-auto">
-        <div class="m-auto sm:m-auto text-left w-4/5 block">
-            <h1 class="text-black font-bold">
-                Latest
-            </h1>
-        </div>
+    <div class="bg-white m-auto">
+        <div class="text-left m-auto grid grid-cols-2 w-4/5 gap-14 pr-4 pl-4">
+            <div class="m-auto sm:m-auto block">
+                <h1 class="text-black text-center font-bold pb-2 pt-4">
+                    Latest
+                </h1>
 
-        <div class="m-auto sm:m-auto text-left w-4/5 block">
-            <h1 class="">
-                Reccomended
-            </h1>
+                <div class="no-underline transition duration-150 ease-in-out hover:text-red-600 pb-2">
+                    <a href="/">
+                        <img src="/images/testcover600x600.jpg" width="300">
+                        <p class="">
+                        <p class="pt-2">Radiohead - In Rainbows: Album Review</p>
+                    </a>
+                </div>
+
+                <div class="no-underline transition duration-150 ease-in-out hover:text-red-600 pb-2">
+                    <a href="/">
+                        <img src="/images/testcover600x600.jpg" width="300">
+                        <p class="">
+                        <p class="pt-2">Radiohead - In Rainbows: Album Review</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="m-auto sm:m-auto block">
+                <h1 class="text-black text-center font-bold pb-2 pt-4">
+                    Reccomended
+                </h1>
+
+                <div class="no-underline transition duration-150 ease-in-out hover:text-red-600 pb-2">
+                    <a href="/">
+                        <img src="/images/testcover600x600.jpg" width="300">
+                        <p class="">
+                        <p class="pt-2">Radiohead - In Rainbows: Album Review</p>
+                    </a>
+                </div>
+
+                <div class="no-underline transition duration-150 ease-in-out hover:text-red-600 pb-2">
+                    <a href="/">
+                        <img src="/images/testcover600x600.jpg" width="300">
+                        <p class="">
+                        <p class="pt-2">Radiohead - In Rainbows: Album Review</p>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 

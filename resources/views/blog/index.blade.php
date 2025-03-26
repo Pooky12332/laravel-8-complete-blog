@@ -34,7 +34,7 @@
         </div>
         <div>
             <h2 class="text-gray-700 font-bold text-5xl pb-4">
-                {{ $post->title }}
+                {{ $post->title }}  
             </h2>
 
             <span class="text-gray-500">
