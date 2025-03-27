@@ -18,7 +18,8 @@ mix
     require('tailwindcss'),
     require('postcss-nested'),
     require('autoprefixer'),
-  ]);
+  ])
+  .postCss('resources/css/fonts.css', 'public/css');
 
 if (mix.inProduction()) {
   mix

@@ -4,140 +4,85 @@
     <div class="bg-white pt-10 grid grid-cols-1 m-auto ">
         <div class="flex text-gray-100 pt-10">
             <div class="m-auto pt-4 pb-14 sm:m-auto w-4/5 block text-center border-b-2 border-black">
-                <h1 class="sm:text-black text-5xl uppercase font-bold text-shadow-md pb-14">
+                <h1 class="sm:text-black text-6xl uppercase font-neovibe text-shadow-md pb-14">
                     SpinList
                 </h1>
             </div>
         </div>
     </div>
 
-    <div class="bg-white m-auto">
-        <div class="text-left m-auto grid grid-cols-2 w-4/5 gap-14 pr-4 pl-4">
-            <div class="m-auto sm:m-auto block">
-                <h1 class="text-black text-center font-bold pb-2 pt-4">
-                    Latest
-                </h1>
-
-                <div class="no-underline transition duration-150 ease-in-out hover:text-red-600 pb-2">
-                    <a href="/">
-                        <img src="/images/testcover600x600.jpg" width="300">
-                        <p class="">
-                        <p class="pt-2">Radiohead - In Rainbows: Album Review</p>
-                    </a>
-                </div>
-
-                <div class="no-underline transition duration-150 ease-in-out hover:text-red-600 pb-2">
-                    <a href="/">
-                        <img src="/images/testcover600x600.jpg" width="300">
-                        <p class="">
-                        <p class="pt-2">Radiohead - In Rainbows: Album Review</p>
-                    </a>
-                </div>
-            </div>
-
-            <div class="m-auto sm:m-auto block">
-                <h1 class="text-black text-center font-bold pb-2 pt-4">
-                    Reccomended
-                </h1>
-
-                <div class="no-underline transition duration-150 ease-in-out hover:text-red-600 pb-2">
-                    <a href="/">
-                        <img src="/images/testcover600x600.jpg" width="300">
-                        <p class="">
-                        <p class="pt-2">Radiohead - In Rainbows: Album Review</p>
-                    </a>
-                </div>
-
-                <div class="no-underline transition duration-150 ease-in-out hover:text-red-600 pb-2">
-                    <a href="/">
-                        <img src="/images/testcover600x600.jpg" width="300">
-                        <p class="">
-                        <p class="pt-2">Radiohead - In Rainbows: Album Review</p>
-                    </a>
-                </div>
-            </div>
+    <div class="w-4/5 m-auto text-left">
+        <div class="py-3 border-b border-black">
+            <h1 class="pl-2 text-2xl font-neovibe">
+                Home
+            </h1>
         </div>
     </div>
 
-    <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
-        <div>
-            <img src="https://cdn.pixabay.com/photo/2014/05/03/01/03/laptop-336704_960_720.jpg" width="700" alt="">
-        </div>
+    <div class="bg-white m-auto pb-10">
+        <div class="text-left m-auto grid grid-cols-2 w-4/5 gap-10 pr-4 pl-4">
+            <div class="m-auto sm:m-auto block">
+                <h1 class="text-black text-center font-neovibe py-4 text-xl">
+                  Latest
+                </h1>
 
-        <div class="m-auto sm:m-auto text-left w-4/5 block">
-            <h2 class="text-3xl font-extrabold text-gray-600">
-                Struggling to be a better web developer?
-            </h2>
-            
-            <p class="py-8 text-gray-500 text-s">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus.
-            </p>
+                @foreach($latestPosts as $post)
+                    <div class="no-underline transition duration-150 ease-in-out hover:text-red-600 pb-5">
+                        <a class="grid-cols-2 grid" href="{{ route('blog.show', $post->slug) }}">
+                            <div>
+                                <img src="{{ asset('/images/' . $post->image_path) }}" width="300" alt="{{ $post->title }}">
+                            </div>
+                            <div>
+                                <p class="pt-1 pl-3 text-lg text-medium">{{ $post->title }}</p>
+                                <p class="pt-1 pl-3 italic text-gray-600">{{ date('jS M Y', strtotime($post->updated_at)) }}</p>
+                                <p class="pt-1 pl-3 text-sm text-gray-400">{!! \Illuminate\Support\Str::limit($post->description, 300) !!}</p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
 
-            <p class="font-extrabold text-gray-600 text-s pb-9">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente magnam vero nostrum! Perferendis eos molestias porro vero. Vel alias.
-            </p>
+            <div class="m-auto sm:m-auto block">
+                <h1 class="text-black text-center font-neovibe py-4 text-xl">
+                    Reccomended
+                </h1>
 
-            <a 
-                href="/blog"
-                class="uppercase bg-blue-500 text-gray-100 text-s font-extrabold py-3 px-8 rounded-3xl">
-                Find Out More
-            </a>
+                @foreach($recommendedPosts as $post)
+                    <div class="no-underline transition duration-150 ease-in-out hover:text-red-600 pb-5">
+                        <a class="grid-cols-2 grid" href="{{ route('blog.show', $post->slug) }}">
+                            <div>
+                                <img class="flex" src="{{ asset('/images/' . $post->image_path) }}" width="300" alt="{{ $post->title }}">
+                            </div>
+                            <div>
+                                <p class="pt-1 pl-3 text-lg text-medium">{{ $post->title }}</p>
+                                <p class="pt-1 pl-3 italic text-gray-600">{{ date('jS M Y', strtotime($post->updated_at)) }}</p>
+                                <p class="pt-1 pl-3 text-sm text-gray-400">{!! \Illuminate\Support\Str::limit($post->description, 300) !!}</p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 
     <div class="text-center p-15 bg-black text-white">
-        <h2 class="text-2xl pb-5 text-l"> 
-            I'm an expert in...
-        </h2>
-
-        <span class="font-extrabold block text-4xl py-1">
-            Ux Design
-        </span>
-        <span class="font-extrabold block text-4xl py-1">
-            Project Management
-        </span>
-        <span class="font-extrabold block text-4xl py-1">
-            Digital Strategy
-        </span>
-        <span class="font-extrabold block text-4xl py-1">
-            Backend Development
-        </span>
+        <div class="w-4/5 m-auto text-left py-3 mb-10 border-b border-white">
+            <h1 class="text-2xl font-neovibe">
+                Albums of the Week
+            </h1>
+        </div>
+        <div class="m-auto grid grid-cols-2 px-10">
+            <iframe style="border-radius:12px margin-top:30px; display:block; margin-left:auto; margin-right:auto;" src="https://open.spotify.com/embed/album/1DInr1e5tIB0WioPuWg4nl?utm_source=generator" width="80%" height="600" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px margin-top:30px; display:block; margin-left:auto; margin-right:auto;" src="https://open.spotify.com/embed/album/6ZksrxRWlJ7ExylPyJwfLJ?utm_source=generator" width="80%" height="600" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
     </div>
 
-    <div class="text-center py-15">
-        <span class="uppercase text-s text-gray-400">
-            Blog
-        </span>
-
-        <h2 class="text-4xl font-bold py-10">
-            Recent Posts
-        </h2>
-
-        <p class="m-auto w-4/5 text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque exercitationem saepe enim veritatis, eos temporibus quaerat facere consectetur qui.
-        </p>
-    </div>
-
-    <div class="sm:grid grid-cols-2 w-4/5 m-auto">
-        <div class="flex bg-yellow-700 text-gray-100 pt-10">
-            <div class="m-auto pt-4 pb-16 sm:m-auto w-4/5 block">
-                <span class="uppercase text-xs">
-                    PHP
-                </span>
-
-                <h3 class="text-xl font-bold py-10">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas necessitatibus dolorum error culpa laboriosam. Enim voluptas earum repudiandae consequuntur ad? Expedita labore aspernatur facilis quasi ex? Nemo hic placeat et?
-                </h3>
-
-                <a 
-                    href=""
-                    class="uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
-                    Find Out More
-                </a>
-            </div>
+    <div class="text-center p-15 text-black">
+        <div class="w-4/5 m-auto text-left py-3 mb-10 border-b border-black">
+            <h1 class="text-2xl font-neovibe">
+                Newest Releases
+            </h1>
         </div>
-        <div>
-            <img src="https://cdn.pixabay.com/photo/2014/05/03/01/03/laptop-336704_960_720.jpg" alt="">
-        </div>
+        
     </div>
 @endsection
